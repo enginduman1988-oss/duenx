@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="tr" translate="no" class="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google" content="notranslate">
+<meta name="theme-color" content="#070B12">
+<meta name="description" content="DUENX: Duen Technology, Duen Marketing ve Duen Architecture için sadakat ve erişim tokenı.">
+<meta property="og:title" content="DUENX Token">
+<meta property="og:description" content="Duen dünyasının ortak anahtarı. İndirimler, ücretsiz yazılım erişimi, alışverişte ödül.">
+<meta property="og:image" content="https://enginduman1988-oss.github.io/duenx/img/og.jpg">
+<meta property="og:url" content="https://enginduman1988-oss.github.io/duenx/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/duenx-logo.png">
+<title>DUENX Token</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#070B12; --s1:#0D141F; --s2:#121B29; --line:#1D293A; --line2:#2A3A51;
+  --text:#E9EEF5; --muted:#8E9CB2; --dim:#5F6E86;
+  --orange:#FF7A1A; --green:#4BFF7A; --blue:#19B4FF;
+  --grad:linear-gradient(120deg,#FF8A00 0%,#FF4D2E 22%,#39FF14 43%,#00B4FF 60%,#0B3A5C 82%,#050608 100%);
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:16px;-webkit-font-smoothing:antialiased}
+html:not(.is-en) .en, html.is-en .tr{display:none!important}
+a{color:inherit}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1180px;margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(1.55rem,5.2vw,2.4rem)}
+h3{font-size:1.08rem;font-weight:500}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lead{color:var(--muted);font-size:1.04rem;max-width:62ch}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+
+/* header */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;margin-inline:-16px;padding:10px 16px;background:rgba(7,11,18,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .top{display:flex;align-items:center;gap:12px;justify-content:space-between;max-width:1180px;margin-inline:auto}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;letter-spacing:.04em}
+.brand img{width:34px;height:34px}
+.navlinks{display:flex;gap:22px;font-size:.92rem;color:var(--muted)}
+.navlinks a{text-decoration:none;white-space:nowrap}
+.navlinks a:hover{color:var(--text)}
+.tools{display:flex;gap:8px;align-items:center}
+.tbtn{min-height:40px;min-width:40px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--s1);color:var(--text);font-family:var(--mono);font-size:.78rem;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.tbtn[aria-pressed="true"]{border-color:var(--green);color:var(--green)}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px}
+.eq i{width:3px;background:currentColor;height:4px}
+.tbtn[aria-pressed="true"] .eq i{animation:eq .9s ease-in-out infinite}
+.tbtn[aria-pressed="true"] .eq i:nth-child(2){animation-delay:.2s}.tbtn[aria-pressed="true"] .eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{50%{height:12px}}
+.mnav{display:none}
+@media (max-width:900px){
+  .navlinks{display:none}
+  .mnav{display:flex;gap:8px;overflow-x:auto;margin:10px -16px 0;padding:0 16px 2px;scrollbar-width:none}
+  .mnav::-webkit-scrollbar{display:none}
+  .mnav a{flex:none;text-decoration:none;font-size:.85rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--s1)}
+}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;font-family:var(--body)}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--text);color:var(--bg);border-color:var(--text)}
+.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
+
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+@media (max-width:600px){section{padding-block:56px}}
+.sechead{display:grid;gap:12px;margin-bottom:36px;max-width:760px}
+
+/* hero */
+.hero{padding-block:48px 56px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2rem,7.5vw,4rem)}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:160% 100%}
+.hero .copy{display:grid;gap:22px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.ca{display:grid;gap:8px;padding:14px;border:1px solid var(--line2);border-radius:14px;background:var(--s1);max-width:560px}
+.ca .row{display:flex;gap:10px;align-items:center}
+.ca code{font-family:var(--mono);font-size:.8rem;word-break:break-all;flex:1;user-select:all}
+.copybtn{flex:none;font-family:var(--mono);font-size:.76rem;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--line2);background:var(--s2);color:var(--text);cursor:pointer}
+.copybtn[data-ok]{color:var(--green);border-color:var(--green)}
+.emblem{position:relative;justify-self:center;width:min(400px,100%);aspect-ratio:1}
+.emblem::before{content:"";position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 0deg,#FF8A00,#39FF14,#00B4FF,#0B3A5C,#FF8A00);filter:blur(60px);opacity:.28;animation:spin 18s linear infinite}
+.emblem img{position:relative;width:100%;height:100%;object-fit:contain;animation:float 7s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.emblem::before,.emblem img,.tbtn .eq i{animation:none!important}}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:24px}.emblem{width:min(220px,62%);grid-row:1}.ctas .btn{flex:1}}
+
+.facts{padding-block:0}
+.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.fact{padding:20px;border-left:1px solid var(--line);display:grid;gap:2px}
+.fact:first-child{border-left:0;padding-left:0}
+.fact b{font-family:var(--display);font-weight:500;font-size:1.2rem;font-variant-numeric:tabular-nums}
+.fact span{font-size:.84rem;color:var(--muted)}
+@media (max-width:760px){.facts .wrap{grid-template-columns:1fr 1fr}.fact{padding:16px 0 16px 16px}.fact:nth-child(3){border-left:0;padding-left:0}.fact{border-top:1px solid var(--line)}.fact:nth-child(-n+2){border-top:0}}
+
+.vidbox video{width:100%;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);background:#000}
+
+/* ecosystem */
+.eco{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--s1);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card .media{background:#000;aspect-ratio:16/10;overflow:hidden}
+.card .media img,.card .media video{width:100%;height:100%;object-fit:cover}
+.card .body{padding:20px;display:grid;gap:12px;align-content:start}
+.card .blogo{height:44px;width:auto;max-width:100%;object-fit:contain;object-position:left}
+.card .blogo.card-img{border-radius:8px}
+.card ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:.94rem;color:var(--muted)}
+.card li{display:flex;gap:10px}
+.card li::before{content:"";flex:none;width:6px;height:6px;margin-top:.62em;border-radius:1px;background:var(--dot,var(--blue))}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:.78rem;min-height:40px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid var(--line2);border-radius:999px;text-decoration:none;color:var(--text)}
+.chip:hover{border-color:var(--muted)}
+.techgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.techgrid div{background:var(--s2);padding:16px;display:grid;gap:4px}
+.techgrid b{font-weight:600}
+.techgrid span{font-size:.86rem;color:var(--muted)}
+.c-mkt{--dot:var(--orange)}.c-arch{--dot:#C9B08A}.c-crypto{--dot:var(--green)}
+@media (max-width:860px){.eco{grid-template-columns:1fr}}
+@media (max-width:420px){.techgrid{grid-template-columns:1fr}}
+
+/* 3D */
+.p3{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.p3 figure{margin:0;background:var(--s1);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.p3 figure img{width:100%;height:auto}
+.p3 figcaption{padding:14px 18px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
+.p3 .photo img{aspect-ratio:4/4.4;object-fit:cover}
+.p3 .wide{grid-column:1/-1}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:16px}
+.specs div{background:var(--s1);padding:16px 18px;display:grid;gap:2px}
+.specs b{font-weight:600}.specs span{font-size:.86rem;color:var(--muted)}
+@media (max-width:760px){.p3{grid-template-columns:1fr}.specs{grid-template-columns:1fr}}
+
+/* works */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.works figure{margin:0;display:grid;gap:8px}
+.works img{aspect-ratio:4/3;object-fit:cover;border-radius:14px;width:100%}
+.works figcaption{font-size:.88rem;color:var(--muted)}
+@media (max-width:860px){.works{grid-template-columns:1fr 1fr}}
+.worksbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:24px}
+
+/* tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:14px;align-content:start}
+.tier.hi{border-color:var(--line2);background:var(--s2)}
+.tier .amt{font-family:var(--display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.tier ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.93rem}
+.tier li{display:grid;grid-template-columns:18px 1fr;gap:8px;color:var(--text)}
+.tier li::before{content:"✓";color:var(--green);font-weight:700}
+.tier li.off{color:var(--dim)}
+.tier li.off::before{content:"–";color:var(--dim)}
+@media (max-width:900px){.tiers{grid-template-columns:1fr}}
+.draft{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);border:1px solid rgba(255,122,26,.45);border-radius:6px;padding:3px 8px}
+.note{font-size:.86rem;color:var(--muted);margin-top:14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.panel{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:24px;display:grid;gap:14px;align-content:start}
+.big{font-family:var(--display);font-size:clamp(3rem,14vw,5.2rem);line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.flow{margin:0;padding:0;list-style:none;counter-reset:f}
+.flow li{counter-increment:f;display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:.94rem;color:var(--muted)}
+.flow li::before{content:counter(f);font-family:var(--mono);font-size:.8rem;color:var(--text);width:26px;height:26px;border:1px solid var(--line2);border-radius:50%;display:grid;place-items:center}
+.flow b{color:var(--text);font-weight:600}
+
+.dist{display:flex;height:22px;border-radius:6px;overflow:hidden;gap:2px;margin-block:8px 18px}
+.legend{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.legend li{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:center;font-size:.94rem}
+.legend li::before{content:"";width:12px;height:12px;border-radius:3px;background:var(--c)}
+.legend small{color:var(--muted);display:block;font-size:.82rem}
+.legend .pct{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.86rem}
+.kv{display:grid;margin:0}
+.kv div{display:grid;grid-template-columns:140px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:.93rem}
+.kv div:first-child{border-top:0}
+.kv dt{color:var(--muted)}.kv dd{margin:0;word-break:break-all}
+.kv .m{font-family:var(--mono);font-size:.8rem}
+.ok{color:var(--green)}
+@media (max-width:520px){.kv div{grid-template-columns:1fr;gap:2px}}
+
+.road{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.road li{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.road .st{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+.st.done{color:var(--green)}.st.now{color:var(--orange)}.st.next{color:var(--dim)}
+.road b{display:block;font-weight:600}.road span{color:var(--muted);font-size:.93rem}
+@media (max-width:560px){.road li{grid-template-columns:1fr;gap:4px}}
+
+.buy{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.buy .panel p{color:var(--muted);font-size:.94rem}
+.buy .n{font-family:var(--mono);font-size:.76rem;color:var(--dim)}
+@media (max-width:860px){.buy{grid-template-columns:1fr}}
+
+details{border-top:1px solid var(--line);padding-block:16px}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:20px;min-height:32px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--muted)}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:10px;max-width:70ch;word-break:break-word}
+
+.risk{background:var(--s1);border:1px solid var(--line2);border-radius:18px;padding:22px;display:grid;gap:10px}
+.risk p{color:var(--muted);font-size:.9rem;max-width:90ch}
+footer{padding-block:44px 88px}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:28px}
+footer h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:600}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.93rem}
+footer a{text-decoration:none;color:var(--text)}
+footer a:hover{color:var(--blue)}
+.fine{color:var(--dim);font-size:.82rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr 1fr}}
+.gradline{height:2px;background:var(--grad);margin-inline:-16px}
+.soon{color:var(--dim)}
+
+.intro{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start}
+.intro video{width:100%;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);background:#000}
+.vmain,.vside{display:grid;gap:12px}
+@media (max-width:860px){.intro{grid-template-columns:1fr}.vside{max-width:420px}}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svccard{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:14px;align-content:start}
+.svccard.wide2{grid-column:1/-1}
+.svccard video{width:100%;aspect-ratio:16/9;border-radius:12px;border:1px solid var(--line);background:#000}
+.svchead{display:flex;gap:12px;align-items:flex-start}
+.svchead i{flex:none;width:30px;height:30px;border-radius:8px;margin-top:2px}
+.sub2{color:var(--muted);font-size:.86rem;margin-top:4px}
+.vpair{display:grid;grid-template-columns:1fr 260px;gap:14px;align-items:start}
+.vpair video.vert{aspect-ratio:9/16}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.92rem}
+.ticks li{display:grid;grid-template-columns:18px 1fr;gap:8px}.ticks li::before{content:"✓";color:var(--green);font-weight:700}
+@media (max-width:900px){.svc{grid-template-columns:1fr}.vpair{grid-template-columns:1fr}.vpair video.vert{max-width:300px}}
+.renders{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.renders figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#0B111B}
+.renders img{width:100%;height:100%;object-fit:contain;background:#0B111B}
+.renders .r-main{grid-column:span 2;grid-row:span 2}
+@media (max-width:760px){.renders{grid-template-columns:1fr 1fr;grid-template-rows:auto}.renders .r-main{grid-column:1/-1;grid-row:auto}}
+.drawings{margin-top:28px;display:grid;gap:20px}
+.drawings figure{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0B1624}
+.drawings img{width:100%}
+.drawings figcaption{padding:12px 16px;font-size:.9rem;color:var(--muted);border-top:1px solid var(--line)}
+.dtabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.dtab{flex:none;min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--s1);color:var(--muted);font-family:var(--body);font-weight:600;cursor:pointer}
+.dtab[aria-selected="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.dview{border:1px solid var(--line);border-radius:16px;overflow:auto;background:#0B1624}
+.dview img{width:100%;cursor:zoom-in}
+.dview.zoom img{width:220%;max-width:none;cursor:zoom-out}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="top">
+    <a class="brand" href="#top" translate="no"><img src="img/duenx-logo.png" alt="">DUENX</a>
+    <nav class="navlinks" aria-label="Menü">
+      <a href="#ekosistem"><span class="tr">Ekosistem</span><span class="en">Ecosystem</span></a>
+      <a href="#yazilim"><span class="tr">Yazılım</span><span class="en">Software</span></a>
+      <a href="#uc-boyut">3D</a>
+      <a href="#mimarlik"><span class="tr">Mimarlık</span><span class="en">Architecture</span></a>
+      <a href="#ayricaliklar"><span class="tr">Ayrıcalıklar</span><span class="en">Perks</span></a>
+      <a href="#token">Token</a>
+      <a href="#sss"><span class="tr">SSS</span><span class="en">FAQ</span></a>
+    </nav>
+    <div class="tools">
+      <button class="tbtn" id="music" type="button" aria-pressed="false" title="Müzik / Music"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span class="tr">Müzik</span><span class="en">Music</span></button>
+      <button class="tbtn" id="lang" type="button" translate="no" aria-label="Dil / Language">EN</button>
+    </div>
+  </div>
+  <nav class="mnav" aria-label="Menü">
+    <a href="#ekosistem"><span class="tr">Ekosistem</span><span class="en">Ecosystem</span></a>
+    <a href="#yazilim"><span class="tr">Yazılım</span><span class="en">Software</span></a>
+      <a href="#uc-boyut">3D</a>
+    <a href="#mimarlik"><span class="tr">Mimarlık</span><span class="en">Architecture</span></a>
+    <a href="#ayricaliklar"><span class="tr">Ayrıcalıklar</span><span class="en">Perks</span></a>
+    <a href="#token">Token</a>
+    <a href="#nasil-alinir"><span class="tr">Nasıl alınır</span><span class="en">How to buy</span></a>
+    <a href="#sss"><span class="tr">SSS</span><span class="en">FAQ</span></a>
+  </nav>
+</header>
+<div class="gradline"></div>
+<audio id="bgm" src="duenx-muzik.mp3" loop preload="none"></audio>
+
+<section class="hero" id="top" style="border-bottom:0">
+  <div class="wrap">
+    <div class="copy">
+      <span class="eyebrow">Duen Technology · Solana</span>
+      <h1><span class="tr">Duen dünyasının <span class="g">ortak anahtarı</span>.</span><span class="en">The <span class="g">shared key</span> to the Duen world.</span></h1>
+      <p class="lead"><span class="tr">DUENX; Duen Technology, Duen Marketing ve Duen Architecture'ı tek bir sadakat ve erişim tokenında birleştirir. Tokenı tutan müşteriler indirim kazanır, Duen yazılımlarına ücretsiz erişir, her alışverişte ödül toplar.</span><span class="en">DUENX brings Duen Technology, Duen Marketing and Duen Architecture together in one loyalty and access token. Holders get discounts, free access to Duen software and rewards on every purchase.</span></p>
+      <div class="ctas">
+        <a class="btn primary" href="#ayricaliklar"><span class="tr">Ayrıcalıkları gör</span><span class="en">See the perks</span></a>
+        <a class="btn" href="#tanitim"><span class="tr">Videoyu izle</span><span class="en">Watch the video</span></a>
+      </div>
+      <div class="ca">
+        <span class="eyebrow"><span class="tr">Resmi kontrat adresi</span><span class="en">Official contract address</span></span>
+        <div class="row"><code id="ca-text" translate="no">68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ</code><button class="copybtn" id="ca-copy" type="button"><span class="tr">Kopyala</span><span class="en">Copy</span></button></div>
+      </div>
+    </div>
+    <div class="emblem"><img src="img/duenx-logo.png" alt="DUENX"></div>
+  </div>
+</section>
+
+<div class="facts" style="border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="fact"><b translate="no">8.000.000.000</b><span class="tr">Sabit toplam arz</span><span class="en">Fixed total supply</span></div>
+    <div class="fact"><b class="ok"><span class="tr">İptal</span><span class="en">Revoked</span></b><span class="tr">Yeni basım yetkisi</span><span class="en">Mint authority</span></div>
+    <div class="fact"><b class="ok"><span class="tr">Yok</span><span class="en">None</span></b><span class="tr">Dondurma yetkisi</span><span class="en">Freeze authority</span></div>
+    <div class="fact"><b translate="no">Solana</b><span translate="no">Token-2022</span></div>
+  </div>
+</div>
+
+<section id="tanitim">
+  <div class="wrap">
+    <div class="intro">
+      <div class="vmain">
+        <span class="eyebrow"><span class="tr">Tanıtım</span><span class="en">Intro</span></span>
+        <video src="vid/duenx-promo.mp4" poster="vid/duenx-promo.jpg" controls playsinline preload="none"></video>
+      </div>
+      <div class="vside">
+        <span class="eyebrow"><span class="tr">30 saniyede Duen</span><span class="en">Duen in 30 seconds</span></span>
+        <video class="tr" src="vid/kisa-tr.mp4" poster="vid/kisa-tr.jpg" controls playsinline preload="none"></video>
+        <video class="en" src="vid/kisa-en.mp4" poster="vid/kisa-en.jpg" controls playsinline preload="none"></video>
+        <p class="fine"><span class="tr">Markalar, yazılım ve ayrıcalıklar tek bakışta.</span><span class="en">Brands, software and perks at a glance.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ekosistem">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow"><span class="tr">Ekosistem</span><span class="en">Ecosystem</span></span>
+      <h2><span class="tr">Gerçek şirketler, gerçek ürünler.</span><span class="en">Real companies, real products.</span></h2>
+      <p class="lead"><span class="tr">DUENX'in arkasında yazılım, e-ticaret, mimarlık ve 3D yazıcı üretimi yapan, bugün satış yapan işletmeler var.</span><span class="en">Behind DUENX are working businesses in software, e-commerce, architecture and 3D printer manufacturing.</span></p>
+    </div>
+    <div class="eco">
+      <article class="card">
+        <div class="techgrid">
+          <div><b><span class="tr">Sektöre özel yazılım çözümleri</span><span class="en">Industry software solutions</span></b><span class="tr">Abonelikle, aylık ödeme. Örneğin doğalgaz firmaları için teklif ve iş takibi.</span><span class="en">Monthly subscription, e.g. quotes and job tracking for gas-installation firms.</span></div>
+          <div><b><span class="tr">Yapay zekâ entegrasyonu</span><span class="en">AI integration</span></b><span class="tr">Şirketinizin süreçlerine yapay zekâ kuruyoruz.</span><span class="en">We build AI into your company workflows.</span></div>
+          <div><b><span class="tr">Al-sat botu</span><span class="en">Trading bot</span></b><span class="tr">Kural tabanlı otomatik alım-satım yazılımı.</span><span class="en">Rule-based automated trading software.</span></div>
+          <div><b><span class="tr">Al-sat veri merkezi</span><span class="en">Trading data center</span></b><span class="tr">Piyasa verisi, grafikler, paneller.</span><span class="en">Market data, charts and dashboards.</span></div>
+        </div>
+        <div class="body">
+          <img class="blogo" src="img/logo-technology-dark.png" alt="duen technology" style="height:36px">
+          <a class="chip" href="#yazilim" style="justify-self:start"><span class="tr">Yazılımları incele</span><span class="en">Explore the software</span></a>
+          <p class="lead" style="font-size:.95rem"><span class="tr">Ekosistemin merkezi. DUENX sahipleri bu yazılımların belirlenen paketlerini ücretsiz kullanır.</span><span class="en">The heart of the ecosystem. DUENX holders use set packages of this software for free.</span></p>
+        </div>
+      </article>
+      <article class="card c-crypto">
+        <div class="media"><img src="img/duen-crypto.jpg" alt="Duen Crypto"></div>
+        <div class="body">
+          <h3 translate="no">Duen Crypto</h3>
+          <ul><li><span class="tr">Al-sat botu ve veri merkezinin çatı markası</span><span class="en">Umbrella brand for the trading bot and data center</span></li>
+          <li><span class="tr">DUENX tutanlara seviyeye göre ücretsiz erişim</span><span class="en">Free access for holders by tier</span></li></ul>
+        </div>
+      </article>
+      <article class="card c-mkt">
+        <div class="media"><video src="vid/marketing.mp4" poster="vid/marketing.jpg" autoplay muted loop playsinline></video></div>
+        <div class="body">
+          <img class="blogo card-img" src="img/logo-marketing.jpg" alt="duen marketing" style="height:52px">
+          <ul><li><span class="tr">Trendyol ve Hepsiburada'da mağaza</span><span class="en">Stores on Trendyol and Hepsiburada</span></li>
+          <li><span class="tr">Teknoloji ürünleri, kulaklıklar, 3D yazıcı parçaları</span><span class="en">Tech products, headphones, 3D printer parts</span></li>
+          <li><span class="tr">DUENX sahiplerine özel indirim kodları</span><span class="en">Discount codes for DUENX holders</span></li></ul>
+          <div class="links"><a class="chip" data-link="hepsiburada" href="#">Hepsiburada</a><a class="chip" data-link="trendyol" href="#">Trendyol</a><a class="chip" data-link="instagramMarketing" href="#">@duenmarketing</a></div>
+        </div>
+      </article>
+      <article class="card c-arch">
+        <div class="media"><video src="vid/architecture.mp4" poster="vid/architecture.jpg" autoplay muted loop playsinline></video></div>
+        <div class="body">
+          <img class="blogo card-img" src="img/logo-architecture.jpg" alt="duen architecture" style="height:40px">
+          <ul><li><span class="tr">İç mekân, ofis ve konut tasarımı</span><span class="en">Interior, office and residential design</span></li>
+          <li><span class="tr">DUENX sahiplerine proje indirimi</span><span class="en">Project discounts for holders</span></li></ul>
+          <div class="links"><a class="chip" href="#mimarlik"><span class="tr">Yaptığımız işler</span><span class="en">Our work</span></a><a class="chip" data-link="instagramMimarlik" href="#">@duenarchitecture</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="yazilim">
+  <div class="wrap">
+    <div class="sechead">
+      <img src="img/logo-technology-dark.png" alt="duen technology" style="height:34px;width:auto">
+      <h2><span class="tr">Yazılım ve yapay zekâ</span><span class="en">Software and AI</span></h2>
+      <p class="lead"><span class="tr">İşletmeler için geliştirdiğimiz yazılımlar. DUENX sahipleri seviyelerine göre indirimli ya da ücretsiz kullanır.</span><span class="en">Software we build for businesses. DUENX holders use it at a discount or free, depending on their tier.</span></p>
+    </div>
+    <div class="svc">
+      <article class="svccard wide2">
+        <div class="svchead"><i style="background:#19B4FF"></i><div><h3><span class="tr">Sektöre özel yazılım çözümleri</span><span class="en">Industry software solutions</span></h3><p class="sub2"><span class="tr">Abonelikle, aylık ödeme</span><span class="en">Monthly subscription</span></p></div></div>
+        <p class="lead" style="font-size:.95rem"><span class="tr">Teklif, iş takibi ve raporlamayı tek ekranda toplayan, sektöre göre uyarlanmış iş uygulamaları. İlk ürünümüz doğalgaz tesisat firmaları için.</span><span class="en">Business apps tailored to each industry, bringing quotes, job tracking and reporting into one screen. Our first product serves gas-installation firms.</span></p>
+        <div class="vpair">
+          <video src="vid/yazilim.mp4" poster="vid/yazilim.jpg" controls playsinline preload="none"></video>
+          <video class="vert" src="vid/dogalgaz.mp4" poster="vid/dogalgaz.jpg" controls playsinline preload="none"></video>
+        </div>
+      </article>
+      <article class="svccard">
+        <div class="svchead"><i style="background:#FF7A1A"></i><div><h3><span class="tr">Trading bot</span><span class="en">Trading bot</span></h3><p class="sub2"><span class="tr">Altın ve gümüş, otomatik</span><span class="en">Gold and silver, automated</span></p></div></div>
+        <video class="tr" src="vid/tradingbot-tr.mp4" poster="vid/tradingbot-tr.jpg" controls playsinline preload="none"></video>
+        <video class="en" src="vid/tradingbot-en.mp4" poster="vid/tradingbot-en.jpg" controls playsinline preload="none"></video>
+        <p class="lead" style="font-size:.93rem"><span class="tr">Kademeli (grid) strateji, canlı pozisyon paneli ve telefondan yönetim. Kazanç garanti edilmez.</span><span class="en">Grid strategy, a live position panel and phone control. Profit is not guaranteed.</span></p>
+      </article>
+      <article class="svccard">
+        <div class="svchead"><i style="background:#4BFF7A"></i><div><h3><span class="tr">Şirketinize yapay zekâ entegrasyonu</span><span class="en">AI integration for your business</span></h3><p class="sub2"><span class="tr">Kurulum ve destek</span><span class="en">Setup and support</span></p></div></div>
+        <p class="lead" style="font-size:.93rem"><span class="tr">İş süreçlerinizi analiz ediyor, yapay zekâyı mevcut sistemlerinize kuruyoruz. Teklif hazırlama, müşteri yazışmaları, raporlama ve veri analizi otomatikleşir.</span><span class="en">We analyse your workflows and build AI into your existing systems. Quotes, customer messages, reporting and data analysis become automatic.</span></p>
+        <ul class="ticks"><li><span class="tr">İhtiyaç analizi</span><span class="en">Needs analysis</span></li><li><span class="tr">Mevcut yazılıma entegrasyon</span><span class="en">Integration with your software</span></li><li><span class="tr">Ekip eğitimi</span><span class="en">Team training</span></li></ul>
+      </article>
+      <article class="svccard">
+        <div class="svchead"><i style="background:#9A7BFF"></i><div><h3><span class="tr">Al-sat veri merkezi</span><span class="en">Trading data center</span></h3><p class="sub2"><span class="tr">Piyasa verisi ve paneller</span><span class="en">Market data and dashboards</span></p></div></div>
+        <p class="lead" style="font-size:.93rem"><span class="tr">Grafikler, fiyat takibi ve sinyal panelleri tek yerde. DUENX sahiplerine seviyeye göre ücretsiz.</span><span class="en">Charts, price tracking and signal panels in one place. Free for DUENX holders by tier.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="uc-boyut">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Duen Technology 3D</span>
+      <h2><span class="tr">Kendi 3D yazıcımızı tasarlayıp üretiyoruz.</span><span class="en">We design and build our own 3D printer.</span></h2>
+      <p class="lead"><span class="tr">Kapalı kasa, metal gövdeli FDM 3D yazıcı. Tasarımdan montaja atölyemizde geliştirildi. Yedek parçaları Duen Marketing mağazalarında.</span><span class="en">An enclosed, metal-body FDM 3D printer, developed in our workshop from design to assembly. Spare parts are sold in the Duen Marketing stores.</span></p>
+    </div>
+    <div class="renders">
+      <figure class="r-main"><img src="img/render-34-left.jpg" alt="Duen Technology 3D yazıcı"></figure>
+      <figure><img src="img/render-34-right.jpg" alt="Sağ ön" loading="lazy"></figure>
+      <figure><img src="img/render-front.jpg" alt="Ön" loading="lazy"></figure>
+      <figure><img src="img/render-side.jpg" alt="Yan" loading="lazy"></figure>
+      <figure><img src="img/render-top.jpg" alt="Üstten" loading="lazy"></figure>
+      <figure><img src="img/render-closeup.jpg" alt="Yakın plan" loading="lazy"></figure>
+    </div>
+    <div class="specs">
+      <div><b><span class="tr">Kapalı kasa</span><span class="en">Enclosed frame</span></b><span class="tr">Metal gövde, akrilik kapaklar</span><span class="en">Metal body, acrylic panels</span></div>
+      <div><b><span class="tr">Isıtmalı cam tabla</span><span class="en">Heated glass bed</span></b><span class="tr">Trapez vidalı Z ekseni</span><span class="en">Lead-screw Z axis</span></div>
+      <div><b><span class="tr">LCD kontrol</span><span class="en">LCD control</span></b><span class="tr">Kart ile bilgisayarsız baskı</span><span class="en">Print from card, no PC needed</span></div>
+    </div>
+    <div class="drawings">
+      <span class="eyebrow"><span class="tr">Teknik resimler · 3 pafta</span><span class="en">Technical drawings · 3 sheets</span></span>
+      <figure><img src="img/teknik-1.jpg" alt="Pafta 1: Ön, yan ve üst görünüş" loading="lazy"><figcaption><span class="tr">Pafta 1 · Ön, yan ve üst görünüş</span><span class="en">Sheet 1 · Front, side and top views</span></figcaption></figure>
+      <figure><img src="img/teknik-2.jpg" alt="Pafta 2: İç yapı" loading="lazy"><figcaption><span class="tr">Pafta 2 · İç yapı ve bileşenler</span><span class="en">Sheet 2 · Internal layout</span></figcaption></figure>
+      <figure><img src="img/teknik-3.jpg" alt="Pafta 3: İzometrik görünüş ve parça listesi" loading="lazy"><figcaption><span class="tr">Pafta 3 · İzometrik görünüş ve parça listesi</span><span class="en">Sheet 3 · Isometric view and bill of materials</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="mimarlik">
+  <div class="wrap">
+    <div class="sechead">
+      <img src="img/logo-architecture.jpg" alt="duen architecture" style="height:44px;width:auto;border-radius:8px">
+      <h2><span class="tr">Yaptığımız işler</span><span class="en">Our work</span></h2>
+      <p class="lead"><span class="tr">Kurumsal, ofis ve konut projelerinden seçkiler.</span><span class="en">Selected corporate, office and residential projects.</span></p>
+    </div>
+    <div class="works" id="works"></div>
+    <div class="worksbar">
+      <p class="fine"><span class="tr">DUENX sahiplerine proje indirimi.</span><span class="en">Project discounts for DUENX holders.</span></p>
+      <div class="links">
+        <a class="btn primary" data-link="mimarlikProjeleri" href="#"><span class="tr">Tüm projeleri gör</span><span class="en">See all projects</span></a>
+        <a class="btn" data-link="instagramMimarlik" href="#">@duenarchitecture</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ayricaliklar">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow"><span class="tr">Ayrıcalıklar</span><span class="en">Perks</span></span>
+      <h2><span class="tr">Ne kadar tutarsan o kadar açılır.</span><span class="en">The more you hold, the more you unlock.</span></h2>
+      <p class="lead"><span class="tr">Cüzdanındaki DUENX miktarı seviyeni belirler. Tokenı harcaman gerekmez, tutman yeterli.</span><span class="en">The DUENX in your wallet sets your tier. You don't spend it, you just hold it.</span></p>
+    </div>
+    <div class="tiers">
+      <div class="tier"><span class="eyebrow"><span class="tr">Başlangıç</span><span class="en">Starter</span></span><span class="amt" translate="no">100.000+</span>
+        <ul><li><span class="tr">Duen Marketing %5 indirim</span><span class="en">5% off Duen Marketing</span></li><li><span class="tr">Duen Technology 3D yedek parça %5</span><span class="en">5% off Duen Technology 3D parts</span></li><li><span class="tr">Veri merkezi temel panel</span><span class="en">Data center basic panel</span></li><li class="off"><span class="tr">Yapay zekâ asistanı</span><span class="en">AI assistant</span></li><li class="off"><span class="tr">Al-sat botu</span><span class="en">Trading bot</span></li></ul></div>
+      <div class="tier"><span class="eyebrow">Pro</span><span class="amt" translate="no">1.000.000+</span>
+        <ul><li><span class="tr">Duen Marketing %10 indirim</span><span class="en">10% off Duen Marketing</span></li><li><span class="tr">Duen Technology 3D yedek parça %10</span><span class="en">10% off Duen Technology 3D parts</span></li><li><span class="tr">Mimarlık projelerinde %5</span><span class="en">5% off architecture projects</span></li><li><span class="tr">Yazılım aboneliklerinde %10</span><span class="en">10% off software subscriptions</span></li><li><span class="tr">Veri merkezi tam erişim</span><span class="en">Full data center access</span></li><li><span class="tr">Yapay zekâ asistanı, aylık kota</span><span class="en">AI assistant, monthly quota</span></li><li class="off"><span class="tr">Al-sat botu</span><span class="en">Trading bot</span></li></ul></div>
+      <div class="tier hi"><span class="eyebrow"><span class="tr">Elit</span><span class="en">Elite</span></span><span class="amt" translate="no">10.000.000+</span>
+        <ul><li><span class="tr">Duen Marketing %15 indirim</span><span class="en">15% off Duen Marketing</span></li><li><span class="tr">Duen Technology 3D yedek parça %15</span><span class="en">15% off Duen Technology 3D parts</span></li><li><span class="tr">Mimarlık projelerinde %10</span><span class="en">10% off architecture projects</span></li><li><span class="tr">Yazılım aboneliklerinde %25</span><span class="en">25% off software subscriptions</span></li><li><span class="tr">Veri merkezi tam erişim</span><span class="en">Full data center access</span></li><li><span class="tr">Yapay zekâ, genişletilmiş kota</span><span class="en">AI assistant, extended quota</span></li><li><span class="tr">Al-sat botu lisansı ücretsiz</span><span class="en">Free trading bot licence</span></li></ul></div>
+    </div>
+    <p class="note"><span class="draft"><span class="tr">Taslak</span><span class="en">Draft</span></span>&nbsp; <span class="tr">Seviye miktarları ve oranlar lansmandan önce kesinleşecek. Seviye, cüzdan bağlanarak doğrulanır.</span><span class="en">Tier amounts and rates will be finalised before launch. Tiers are verified by connecting a wallet.</span></p>
+
+    <div class="split" style="margin-top:32px">
+      <div class="panel">
+        <span class="eyebrow"><span class="tr">Sadakat ödülleri</span><span class="en">Loyalty rewards</span></span>
+        <h3 style="font-family:var(--display);font-weight:700;font-size:1.3rem"><span class="tr">Alışveriş yap, DUENX kazan.</span><span class="en">Shop, earn DUENX.</span></h3>
+        <ol class="flow">
+          <li><span><b><span class="tr">Satın al.</span><span class="en">Buy.</span></b> <span class="tr">Trendyol, Hepsiburada, Duen Architecture veya Duen yazılımları.</span><span class="en">On Trendyol, Hepsiburada, from Duen Architecture or Duen software.</span></span></li>
+          <li><span><b><span class="tr">Cüzdanını ilet.</span><span class="en">Send your wallet.</span></b> <span class="tr">Sipariş numarasıyla ödül formuna.</span><span class="en">With your order number, via the reward form.</span></span></li>
+          <li><span><b><span class="tr">Ödülünü al.</span><span class="en">Get your reward.</span></b> <span class="tr">DUENX doğrulamadan sonra cüzdanına gelir.</span><span class="en">DUENX arrives in your wallet after verification.</span></span></li>
+        </ol>
+      </div>
+      <div class="panel">
+        <span class="eyebrow"><span class="tr">Ekosistem fonu</span><span class="en">Ecosystem fund</span></span>
+        <div class="big" translate="no">%10</div>
+        <p><span class="tr">Duen şirketlerinin gelirinin %10'u DUENX ödül fonuna ayrılır.</span><span class="en">10% of Duen company revenue goes to the DUENX reward fund.</span></p>
+        <p style="color:var(--muted)"><span class="tr">Fon, piyasadan DUENX alarak sadakat ödüllerini ve kampanyaları finanse eder. Fon cüzdanı herkese açık, her hareket zincir üzerinde izlenebilir.</span><span class="en">The fund buys DUENX on the market to pay for loyalty rewards and campaigns. The fund wallet is public and every move is traceable on-chain.</span></p>
+        <p class="note" style="margin-top:0"><span class="draft"><span class="tr">Planlanan</span><span class="en">Planned</span></span>&nbsp; <span class="tr">Hukuki inceleme sonrası devreye girecek.</span><span class="en">Starts after legal review.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="token">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Token</span>
+      <h2><span class="tr">Açık, sabit ve doğrulanabilir.</span><span class="en">Open, fixed and verifiable.</span></h2>
+    </div>
+    <div class="split">
+      <div class="panel">
+        <span class="eyebrow"><span class="tr">Dağılım planı</span><span class="en">Allocation plan</span> <span class="draft" style="margin-left:6px"><span class="tr">Taslak</span><span class="en">Draft</span></span></span>
+        <div class="dist" role="img" aria-label="50/20/15/10/5"><i style="width:50%;background:#19B4FF"></i><i style="width:20%;background:#4BFF7A"></i><i style="width:15%;background:#FF7A1A"></i><i style="width:10%;background:#9A7BFF"></i><i style="width:5%;background:#8E9CB2"></i></div>
+        <ul class="legend">
+          <li style="--c:#19B4FF"><span><span class="tr">Likidite havuzu</span><span class="en">Liquidity pool</span><small><span class="tr">Raydium, LP kilitli</span><span class="en">Raydium, LP locked</span></small></span><span class="pct">50% · 4.0B</span></li>
+          <li style="--c:#4BFF7A"><span><span class="tr">Ödül ve sadakat havuzu</span><span class="en">Rewards and loyalty</span><small><span class="tr">Alışveriş ödülleri, kampanyalar</span><span class="en">Purchase rewards, campaigns</span></small></span><span class="pct">20% · 1.6B</span></li>
+          <li style="--c:#FF7A1A"><span><span class="tr">Şirket kasası</span><span class="en">Treasury</span><small><span class="tr">Çoklu imzalı cüzdan</span><span class="en">Multisig wallet</span></small></span><span class="pct">15% · 1.2B</span></li>
+          <li style="--c:#9A7BFF"><span><span class="tr">Ekip</span><span class="en">Team</span><small><span class="tr">12 ay kilitli</span><span class="en">12-month lock</span></small></span><span class="pct">10% · 0.8B</span></li>
+          <li style="--c:#8E9CB2"><span><span class="tr">Pazarlama</span><span class="en">Marketing</span><small><span class="tr">Topluluk ve iş birlikleri</span><span class="en">Community and partners</span></small></span><span class="pct">5% · 0.4B</span></li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="eyebrow"><span class="tr">Zincir üstü bilgiler</span><span class="en">On-chain facts</span></span>
+        <dl class="kv">
+          <div><dt><span class="tr">Ad / sembol</span><span class="en">Name / symbol</span></dt><dd translate="no">DUENX / DUENX</dd></div>
+          <div><dt><span class="tr">Kontrat</span><span class="en">Mint</span></dt><dd class="m" translate="no">68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ</dd></div>
+          <div><dt><span class="tr">Standart</span><span class="en">Standard</span></dt><dd translate="no">Solana · Token-2022</dd></div>
+          <div><dt><span class="tr">Ondalık</span><span class="en">Decimals</span></dt><dd>9</dd></div>
+          <div><dt><span class="tr">Toplam arz</span><span class="en">Supply</span></dt><dd translate="no">8.000.000.000</dd></div>
+          <div><dt><span class="tr">Basım yetkisi</span><span class="en">Mint authority</span></dt><dd class="ok"><span class="tr">İptal edildi</span><span class="en">Revoked</span></dd></div>
+          <div><dt><span class="tr">Dondurma yetkisi</span><span class="en">Freeze authority</span></dt><dd class="ok"><span class="tr">Yok</span><span class="en">None</span></dd></div>
+          <div><dt><span class="tr">Oluşturulma</span><span class="en">Created</span></dt><dd><span class="tr">25 Eylül 2026</span><span class="en">25 September 2026</span></dd></div>
+        </dl>
+        <div class="links"><a class="chip" href="https://explorer.solana.com/address/68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ">Solana Explorer</a><a class="chip" href="https://solscan.io/token/68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ">Solscan</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yol-haritasi">
+  <div class="wrap">
+    <div class="sechead"><span class="eyebrow"><span class="tr">Yol haritası</span><span class="en">Roadmap</span></span><h2><span class="tr">Adım adım.</span><span class="en">Step by step.</span></h2></div>
+    <ol class="road">
+      <li><span class="st done"><span class="tr">Tamamlandı</span><span class="en">Done</span></span><div><b><span class="tr">Token oluşturuldu</span><span class="en">Token created</span></b><span class="tr">8 milyar sabit arz, basım ve dondurma kapalı.</span><span class="en">8B fixed supply, mint and freeze disabled.</span></div></li>
+      <li><span class="st done"><span class="tr">Tamamlandı</span><span class="en">Done</span></span><div><b><span class="tr">Kimlik ve metadata</span><span class="en">Identity and metadata</span></b><span class="tr">Logo, ad ve sembol cüzdanlarda görünür.</span><span class="en">Logo, name and symbol show in wallets.</span></div></li>
+      <li><span class="st now"><span class="tr">Sürüyor</span><span class="en">In progress</span></span><div><b><span class="tr">Web sitesi ve hukuki inceleme</span><span class="en">Website and legal review</span></b><span class="tr">Seviyelerin ve ödül fonunun kesinleşmesi.</span><span class="en">Finalising tiers and the reward fund.</span></div></li>
+      <li><span class="st next"><span class="tr">Sırada</span><span class="en">Next</span></span><div><b><span class="tr">Raydium likidite havuzu</span><span class="en">Raydium liquidity pool</span></b><span class="tr">DUENX/SOL havuzu, LP kilidi.</span><span class="en">DUENX/SOL pool with locked LP.</span></div></li>
+      <li><span class="st next"><span class="tr">Sırada</span><span class="en">Next</span></span><div><b>DexScreener · Jupiter · Solscan</b><span class="tr">Doğrulanmış profiller.</span><span class="en">Verified profiles.</span></div></li>
+      <li><span class="st next"><span class="tr">Sırada</span><span class="en">Next</span></span><div><b><span class="tr">Sahip paneli</span><span class="en">Holder panel</span></b><span class="tr">Cüzdan bağla, seviyeni gör, indirim kodunu al.</span><span class="en">Connect a wallet, see your tier, get discount codes.</span></div></li>
+      <li><span class="st next"><span class="tr">Sırada</span><span class="en">Next</span></span><div><b><span class="tr">Yazılım erişimi</span><span class="en">Software access</span></b><span class="tr">Veri merkezi, yapay zekâ ve bota DUENX ile giriş.</span><span class="en">Data center, AI and bot access with DUENX.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="nasil-alinir">
+  <div class="wrap">
+    <div class="sechead"><span class="eyebrow"><span class="tr">Nasıl alınır</span><span class="en">How to buy</span></span><h2><span class="tr">Üç adımda DUENX.</span><span class="en">DUENX in three steps.</span></h2>
+      <p class="lead"><span class="tr">Likidite havuzu açıldığında geçerli olacak. Açılış sosyal medyadan duyurulacak.</span><span class="en">Available once the liquidity pool opens. The launch will be announced on social media.</span></p></div>
+    <div class="buy">
+      <div class="panel"><span class="n">1</span><b><span class="tr">Phantom cüzdanı kur</span><span class="en">Install Phantom</span></b><p><span class="tr">Sadece phantom.com adresinden indir.</span><span class="en">Only from phantom.com.</span></p></div>
+      <div class="panel"><span class="n">2</span><b><span class="tr">Cüzdanına SOL gönder</span><span class="en">Fund it with SOL</span></b><p><span class="tr">Bir borsadan Solana ağıyla çek.</span><span class="en">Withdraw from an exchange on the Solana network.</span></p></div>
+      <div class="panel"><span class="n">3</span><b><span class="tr">DUENX ile takas et</span><span class="en">Swap for DUENX</span></b><p><span class="tr">Raydium veya Jupiter'de resmi kontrat adresiyle.</span><span class="en">On Raydium or Jupiter using the official contract address.</span></p><a class="btn primary" data-link="satinAl" href="#"><span class="tr">DUENX al</span><span class="en">Buy DUENX</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section id="sss">
+  <div class="wrap" style="display:grid;gap:32px">
+    <div class="sechead" style="margin-bottom:0"><span class="eyebrow"><span class="tr">Sık sorulanlar</span><span class="en">FAQ</span></span><h2><span class="tr">Sorular ve cevaplar</span><span class="en">Questions and answers</span></h2></div>
+    <div>
+      <details><summary><span class="tr">DUENX'in arkasında kim var?</span><span class="en">Who is behind DUENX?</span></summary><p><span class="tr">Duen Technology ve bağlı markaları: Duen Marketing, Duen Architecture ve Duen Technology 3D yazıcı üretimi.</span><span class="en">Duen Technology and its brands: Duen Marketing, Duen Architecture and Duen Technology 3D printer manufacturing.</span></p></details>
+      <details><summary><span class="tr">Sahte DUENX'ten nasıl korunurum?</span><span class="en">How do I avoid fake DUENX?</span></summary><p><span class="tr">Sadece bu sayfadaki kontrat adresini kullan:</span><span class="en">Only use the contract address on this page:</span> <span translate="no">68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ</span></p></details>
+      <details><summary><span class="tr">Yeni DUENX basılabilir mi?</span><span class="en">Can more DUENX be minted?</span></summary><p><span class="tr">Hayır. Basım yetkisi 25 Eylül 2026'da kalıcı olarak iptal edildi.</span><span class="en">No. Mint authority was permanently revoked on 25 September 2026.</span></p></details>
+      <details><summary><span class="tr">Al-sat botu kâr garantisi veriyor mu?</span><span class="en">Does the trading bot guarantee profit?</span></summary><p><span class="tr">Hayır. Bot kullanıcının kurallarıyla çalışan bir yazılımdır; piyasa işlemleri zarar riski taşır.</span><span class="en">No. The bot is software that follows your rules; trading always carries risk of loss.</span></p></details>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:0;padding-block:48px">
+  <div class="wrap"><div class="risk">
+    <span class="eyebrow"><span class="tr">Risk bildirimi</span><span class="en">Risk notice</span></span>
+    <p><span class="tr">DUENX, Duen ekosistemindeki ürün ve hizmetlere erişim ve indirim sağlayan bir sadakat tokenıdır. Yatırım aracı değildir; kâr, getiri veya değer artışı vaadi içermez. Kripto varlıkların fiyatı çok oynaktır ve tamamen değer kaybedebilir. Bu sayfadaki hiçbir bilgi yatırım tavsiyesi değildir.</span><span class="en">DUENX is a loyalty token that gives access and discounts across the Duen ecosystem. It is not an investment product and promises no profit, return or price increase. Crypto asset prices are highly volatile and can go to zero. Nothing on this page is investment advice.</span></p>
+  </div></div>
+</section>
+
+<div class="gradline"></div>
+<footer>
+  <div class="wrap">
+    <div style="display:grid;gap:12px;align-content:start">
+      <img src="img/logo-technology-dark.png" alt="duen technology" style="height:28px;width:auto">
+      <p class="fine">© 2026 Duen Technology</p>
+    </div>
+    <div><h4><span class="tr">Markalar</span><span class="en">Brands</span></h4><ul>
+      <li><a data-link="hepsiburada" href="#">Hepsiburada</a></li><li><a data-link="trendyol" href="#">Trendyol</a></li><li><a href="#mimarlik">Duen Architecture</a></li><li><a href="#uc-boyut">Duen Technology 3D</a></li></ul></div>
+    <div><h4><span class="tr">Topluluk</span><span class="en">Community</span></h4><ul>
+      <li><a data-link="instagramMarketing" href="#">@duenmarketing</a></li><li><a data-link="instagramMimarlik" href="#">@duenarchitecture</a></li><li><a data-link="x" href="#">X</a></li><li><a data-link="telegram" href="#">Telegram</a></li></ul></div>
+    <div><h4>Token</h4><ul>
+      <li><a href="https://explorer.solana.com/address/68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ">Solana Explorer</a></li><li><a href="https://solscan.io/token/68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ">Solscan</a></li><li><a href="#sss"><span class="tr">SSS</span><span class="en">FAQ</span></a></li></ul></div>
+  </div>
+</footer>
+
+<script src="ayarlar.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  root.setAttribute('translate','no'); root.classList.add('notranslate');
+  // language
+  var saved=null; try{saved=localStorage.getItem('duenx-lang')}catch(e){}
+  var lang=saved||((navigator.language||'tr').toLowerCase().indexOf('tr')===0?'tr':'en');
+  var lb=document.getElementById('lang');
+  function setLang(l){lang=l;root.classList.toggle('is-en',l==='en');root.lang=l;lb.textContent=l==='en'?'TR':'EN';
+    document.querySelectorAll('video').forEach(function(v){if(!v.autoplay)v.pause()});
+    try{localStorage.setItem('duenx-lang',l)}catch(e){}}
+  lb.addEventListener('click',function(){setLang(lang==='en'?'tr':'en')}); setLang(lang);
+  // settings links
+  var A=window.DUEN_AYAR||{};
+  document.querySelectorAll('[data-link]').forEach(function(a){var u=A[a.dataset.link];
+    if(u){a.href=u;a.target='_blank';a.rel='noopener'}else{a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.classList.add('soon');a.title='Yakında / Soon';}});
+  // works gallery
+  var w=document.getElementById('works');(A.mimarlikGaleri||[]).forEach(function(g){
+    var f=document.createElement('figure');f.innerHTML='<img loading="lazy" alt=""><figcaption><span class="tr"></span><span class="en"></span></figcaption>';
+    f.querySelector('img').src=g.resim;f.querySelector('img').alt=g.tr||'';f.querySelector('.tr').textContent=g.tr||'';f.querySelector('.en').textContent=g.en||g.tr||'';w.appendChild(f)});
+  // music
+  var m=document.getElementById('bgm'),mb=document.getElementById('music');m.volume=.45;
+  mb.addEventListener('click',function(){if(m.paused){m.play().then(function(){mb.setAttribute('aria-pressed','true')}).catch(function(){})}else{m.pause();mb.setAttribute('aria-pressed','false')}});
+  document.querySelectorAll('video[controls]').forEach(function(v){v.addEventListener('play',function(){if(!m.paused){m.pause();mb.setAttribute('aria-pressed','false')}})});
+  // pause other videos when one plays
+  document.querySelectorAll('video[controls]').forEach(function(v){v.addEventListener('play',function(){document.querySelectorAll('video[controls]').forEach(function(o){if(o!==v)o.pause()})})});
+  // copy
+  var b=document.getElementById('ca-copy'),t=document.getElementById('ca-text'),orig=b.innerHTML;
+  function mark(ok){b.innerHTML=ok?'✓':'…';b.setAttribute('data-ok','');setTimeout(function(){b.innerHTML=orig;b.removeAttribute('data-ok')},1600)}
+  function sel(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+  b.addEventListener('click',function(){try{navigator.clipboard.writeText(t.textContent.trim()).then(function(){mark(true)},function(){sel();mark(false)})}catch(e){sel();mark(false)}});
+})();
+</script>
+
+</body>
+</html>
