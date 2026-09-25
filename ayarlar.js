@@ -19,7 +19,7 @@ window.DUEN_AYAR = {
   telegram: "",
 
   // Token satın alma linki (Raydium havuzu açılınca buraya yapıştır)
-  satinAl: "",
+  satinAl: "https://raydium.io/swap/?inputMint=sol&outputMint=68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ",
 
   // Mimarlık "Yaptığımız işler" galerisi: resim dosyası ve başlık.
   // Yeni resim eklemek için resmi GitHub'da img klasörüne yükle, buraya bir satır ekle.
