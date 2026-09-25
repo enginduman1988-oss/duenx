@@ -216,10 +216,10 @@ footer a:hover{color:var(--blue)}
 .gradline{height:2px;background:var(--grad);margin-inline:-16px}
 .soon{color:var(--dim)}
 
-.intro{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start}
+.intro{display:grid;grid-template-columns:1fr;gap:28px}
 .intro video{width:100%;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);background:#000}
 .vmain,.vside{display:grid;gap:12px}
-@media (max-width:860px){.intro{grid-template-columns:1fr}.vside{max-width:420px}}
+
 .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .svccard{background:var(--s1);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:14px;align-content:start}
 .svccard.wide2{grid-column:1/-1}
@@ -247,6 +247,21 @@ footer a:hover{color:var(--blue)}
 .dview{border:1px solid var(--line);border-radius:16px;overflow:auto;background:#0B1624}
 .dview img{width:100%;cursor:zoom-in}
 .dview.zoom img{width:220%;max-width:none;cursor:zoom-out}
+
+.p3top{display:grid;grid-template-columns:1fr 2fr;gap:14px;align-items:start}
+.p3left,.p3right{display:grid;gap:14px}
+.p3top figure,.gal figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#0B1624}
+.p3top img{width:100%;display:block}
+.cad img{aspect-ratio:3/3.4;object-fit:cover;object-position:center 60%}
+.cad figcaption{padding:10px 14px;font-size:.88rem;color:var(--muted);border-top:1px solid var(--line)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.r2 img{aspect-ratio:1;object-fit:contain}
+.dmain img{cursor:zoom-in}.dmain.zoom{overflow:auto}.dmain.zoom img{width:220%;max-width:none;cursor:zoom-out}
+.dthumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dthumbs button{padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0B1624;cursor:pointer}
+.dthumbs button.on{border-color:var(--blue)}
+.gal{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:12px}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+@media (max-width:760px){.p3top{grid-template-columns:1fr}.gal{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -422,24 +437,33 @@ footer a:hover{color:var(--blue)}
       <h2><span class="tr">Kendi 3D yazıcımızı tasarlayıp üretiyoruz.</span><span class="en">We design and build our own 3D printer.</span></h2>
       <p class="lead"><span class="tr">Kapalı kasa, metal gövdeli FDM 3D yazıcı. Tasarımdan montaja atölyemizde geliştirildi. Yedek parçaları Duen Marketing mağazalarında.</span><span class="en">An enclosed, metal-body FDM 3D printer, developed in our workshop from design to assembly. Spare parts are sold in the Duen Marketing stores.</span></p>
     </div>
-    <div class="renders">
-      <figure class="r-main"><img src="img/render-34-left.jpg" alt="Duen Technology 3D yazıcı"></figure>
-      <figure><img src="img/render-34-right.jpg" alt="Sağ ön" loading="lazy"></figure>
-      <figure><img src="img/render-front.jpg" alt="Ön" loading="lazy"></figure>
-      <figure><img src="img/render-side.jpg" alt="Yan" loading="lazy"></figure>
-      <figure><img src="img/render-top.jpg" alt="Üstten" loading="lazy"></figure>
-      <figure><img src="img/render-closeup.jpg" alt="Yakın plan" loading="lazy"></figure>
+    <div class="p3top">
+      <div class="p3left">
+        <figure class="cad"><img src="img/foto-cad-duen.jpg" alt="CAD tasarım çizimi"><figcaption><span class="tr">CAD tasarım çizimi</span><span class="en">CAD design drawing</span></figcaption></figure>
+        <div class="r2"><figure><img src="img/render-34-left.jpg" alt="3D görsel"></figure><figure><img src="img/render-front.jpg" alt="3D ön görünüş"></figure></div>
+      </div>
+      <div class="p3right">
+        <div class="dtabs" role="tablist">
+          <button type="button" class="dtab" aria-selected="true" data-d="1"><span class="tr">Görünüşler</span><span class="en">Views</span></button>
+          <button type="button" class="dtab" aria-selected="false" data-d="2"><span class="tr">İç yapı</span><span class="en">Internals</span></button>
+          <button type="button" class="dtab" aria-selected="false" data-d="3"><span class="tr">İzometrik + parça listesi</span><span class="en">Isometric + BOM</span></button>
+        </div>
+        <figure class="dmain"><img id="dimg" src="img/teknik-1.jpg" alt="Teknik resim"></figure>
+        <div class="dthumbs">
+          <button type="button" data-d="1"><img src="img/teknik-1.jpg" alt="Pafta 1"></button>
+          <button type="button" data-d="2"><img src="img/teknik-2.jpg" alt="Pafta 2"></button>
+          <button type="button" data-d="3"><img src="img/teknik-3.jpg" alt="Pafta 3"></button>
+        </div>
+      </div>
     </div>
     <div class="specs">
       <div><b><span class="tr">Kapalı kasa</span><span class="en">Enclosed frame</span></b><span class="tr">Metal gövde, akrilik kapaklar</span><span class="en">Metal body, acrylic panels</span></div>
       <div><b><span class="tr">Isıtmalı cam tabla</span><span class="en">Heated glass bed</span></b><span class="tr">Trapez vidalı Z ekseni</span><span class="en">Lead-screw Z axis</span></div>
       <div><b><span class="tr">LCD kontrol</span><span class="en">LCD control</span></b><span class="tr">Kart ile bilgisayarsız baskı</span><span class="en">Print from card, no PC needed</span></div>
     </div>
-    <div class="drawings">
-      <span class="eyebrow"><span class="tr">Teknik resimler · 3 pafta</span><span class="en">Technical drawings · 3 sheets</span></span>
-      <figure><img src="img/teknik-1.jpg" alt="Pafta 1: Ön, yan ve üst görünüş" loading="lazy"><figcaption><span class="tr">Pafta 1 · Ön, yan ve üst görünüş</span><span class="en">Sheet 1 · Front, side and top views</span></figcaption></figure>
-      <figure><img src="img/teknik-2.jpg" alt="Pafta 2: İç yapı" loading="lazy"><figcaption><span class="tr">Pafta 2 · İç yapı ve bileşenler</span><span class="en">Sheet 2 · Internal layout</span></figcaption></figure>
-      <figure><img src="img/teknik-3.jpg" alt="Pafta 3: İzometrik görünüş ve parça listesi" loading="lazy"><figcaption><span class="tr">Pafta 3 · İzometrik görünüş ve parça listesi</span><span class="en">Sheet 3 · Isometric view and bill of materials</span></figcaption></figure>
+    <span class="eyebrow" style="display:block;margin-top:32px"><span class="tr">Atölyeden · gerçek fotoğraflar</span><span class="en">From the workshop · real photos</span></span>
+    <div class="gal">
+      <figure><img src="img/foto-3.jpg" alt="" loading="lazy"></figure><figure><img src="img/foto-2.jpg" alt="" loading="lazy"></figure><figure><img src="img/foto-5.jpg" alt="" loading="lazy"></figure><figure><img src="img/foto-1.jpg" alt="" loading="lazy"></figure><figure><img src="img/foto-ic.jpg" alt="" loading="lazy"></figure><figure><img src="img/foto-4.jpg" alt="" loading="lazy"></figure><figure><img src="img/foto-6.jpg" alt="" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -625,6 +649,13 @@ footer a:hover{color:var(--blue)}
   document.querySelectorAll('video[controls]').forEach(function(v){v.addEventListener('play',function(){if(!m.paused){m.pause();mb.setAttribute('aria-pressed','false')}})});
   // pause other videos when one plays
   document.querySelectorAll('video[controls]').forEach(function(v){v.addEventListener('play',function(){document.querySelectorAll('video[controls]').forEach(function(o){if(o!==v)o.pause()})})});
+  // drawings viewer
+  var dimg=document.getElementById('dimg');
+  function showD(n){dimg.src='img/teknik-'+n+'.jpg';dimg.parentNode.classList.remove('zoom');
+    document.querySelectorAll('.dtab').forEach(function(x){x.setAttribute('aria-selected',x.dataset.d==n?'true':'false')});
+    document.querySelectorAll('.dthumbs button').forEach(function(x){x.classList.toggle('on',x.dataset.d==n)})}
+  document.querySelectorAll('.dtab,.dthumbs button').forEach(function(b){b.addEventListener('click',function(){showD(b.dataset.d)})});
+  dimg.addEventListener('click',function(){dimg.parentNode.classList.toggle('zoom')}); showD('1');
   // copy
   var b=document.getElementById('ca-copy'),t=document.getElementById('ca-text'),orig=b.innerHTML;
   function mark(ok){b.innerHTML=ok?'✓':'…';b.setAttribute('data-ok','');setTimeout(function(){b.innerHTML=orig;b.removeAttribute('data-ok')},1600)}
