@@ -1,6 +1,15 @@
 {
   "name": "DUENX",
   "symbol": "DUENX",
-  "description": "DUENX - Duen Technology token on Solana.",
-  "image": "https://raw.githubusercontent.com/enginduman1988-oss/duenx/main/duenx-logo.png"
+  "description": "DUENX is the official Solana token of the Duen Technology ecosystem: software, 3D printing, architecture and marketing. Fixed 8B supply, mint authority revoked, Raydium LP permanently locked, team allocation locked until 26 Oct 2027.",
+  "image": "https://raw.githubusercontent.com/enginduman1988-oss/duenx/main/duenx-logo.png",
+  "external_url": "https://enginduman1988-oss.github.io/duenx/",
+  "website": "https://enginduman1988-oss.github.io/duenx/",
+  "twitter": "https://x.com/duenx",
+  "telegram": "https://t.me/duenx",
+  "extensions": {
+    "website": "https://enginduman1988-oss.github.io/duenx/",
+    "twitter": "https://x.com/duenx",
+    "telegram": "https://t.me/duenx"
+  }
 }
