@@ -16,7 +16,7 @@ window.DUEN_AYAR = {
   instagramMarketing: "https://www.instagram.com/duenmarketing/",
   instagramMimarlik: "https://www.instagram.com/duenarchitecture/",
   x: "https://x.com/duenx",
-  telegram: "",
+  telegram: "https://t.me/duenx",
 
   // Token satın alma linki (Raydium havuzu açılınca buraya yapıştır)
   satinAl: "https://raydium.io/swap/?inputMint=sol&outputMint=68a3ap7hm5SdqP3VVQNxxgEUk38MJ4xquU2VF27EqHXQ",
